@@ -30,6 +30,7 @@ module.exports = {
             test: /\.js$/,
             include: [
                 /node_modules\/react-native-/,
+                /node_modules\/@indec\/react-native-/,
                 /node_modules\/react-router-native/
             ],
             loader: 'babel-loader',

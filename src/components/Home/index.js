@@ -2,7 +2,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Link} from 'react-router-native';
-import {types} from 'react-native-form-builder';
+import {types} from '@indec/react-native-form-builder';
 
 import styles from './styles';
 
