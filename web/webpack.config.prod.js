@@ -21,7 +21,8 @@ module.exports = {
         rules: [{
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader', options: {
+            loader: 'babel-loader',
+            options: {
                 plugins: ['lodash'],
                 presets: ['react-app']
             }
@@ -30,13 +31,12 @@ module.exports = {
             test: /\.js$/,
             include: [
                 /node_modules\/react-native-/,
-                /node_modules\/@indec\/react-native-/,
+                /node_modules\/@indec/,
                 /node_modules\/react-router-native/
             ],
             loader: 'babel-loader',
-            query: {
-                presets: ['react-app'],
-                cacheDirectory: '.babel-cache'
+            options: {
+                presets: ['react-app']
             }
         }, {
             test: /\.(gif|jpe?g|png|svg)$/,

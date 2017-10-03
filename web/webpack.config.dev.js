@@ -8,7 +8,10 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'src')
     },
-    entry: path.join(__dirname, '../index.web.js'),
+    entry: [
+        'react-hot-loader/patch',
+        path.join(__dirname, '../index.web.js')
+    ],
     resolve: {
         modules: ['node_modules'],
         extensions: ['.web.js', '.js', '.jsx'],
@@ -24,7 +27,7 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             use: [{
-                loader: 'react-hot-loader'
+                loader: 'react-hot-loader/webpack'
             }, {
                 loader: 'babel-loader',
                 options: {
@@ -39,7 +42,7 @@ module.exports = {
             test: /\.js$/,
             include: [
                 /node_modules\/react-native-/,
-                /node_modules\/@indec\/react-native-/,
+                /node_modules\/@indec/,
                 /node_modules\/react-router-native/
             ],
             loader: 'babel-loader',

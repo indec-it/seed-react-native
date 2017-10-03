@@ -12,7 +12,7 @@ const Home = () => (
             {types.YES_NO}
         </Text>
         <Link to="/signIn">
-            <Text>Signin</Text>
+            <Text>SignIn</Text>
         </Link>
     </View>
 );
