@@ -4,7 +4,7 @@ const webpack = require('webpack');
 process.env.NODE_ENV = 'development';
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
+    mode: process.env.NODE_ENV,
     devServer: {
         contentBase: path.join(__dirname, 'src')
     },
@@ -24,7 +24,7 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             use: [{
-                loader: 'react-hot-loader'
+                loader: 'react-hot-loader/webpack'
             }, {
                 loader: 'babel-loader',
                 options: {
@@ -33,7 +33,6 @@ module.exports = {
                     cacheDirectory: '.babel-cache'
                 }
             }]
-
         }, {
             // Most react-native libraries include uncompiled ES6 JS.
             test: /\.js$/,
@@ -48,9 +47,17 @@ module.exports = {
                 cacheDirectory: '.babel-cache'
             }
         }, {
+            test: /\.css$/,
+            include: /node_modules/,
+            loaders: ['style-loader', 'css-loader'],
+        }, {
             test: /\.(gif|jpe?g|png|svg)$/,
             loader: 'url-loader',
             query: {name: '[name].[hash:16].[ext]'}
+        }, {
+            test: /\.ttf$/,
+            loader: 'url-loader',
+            include: path.resolve(__dirname, '../node_modules/react-native-vector-icons')
         }]
     },
     plugins: [

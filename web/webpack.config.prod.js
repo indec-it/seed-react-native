@@ -5,7 +5,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 process.env.NODE_ENV = 'production';
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
+    mode: process.env.NODE_ENV,
     entry: path.join(__dirname, '../index.web.js'),
     resolve: {
         modules: ['node_modules'],
@@ -35,21 +35,23 @@ module.exports = {
             ],
             loader: 'babel-loader',
             query: {
-                presets: ['react-app'],
-                cacheDirectory: '.babel-cache'
+                presets: ['react-app']
             }
         }, {
             test: /\.(gif|jpe?g|png|svg)$/,
             loader: 'url-loader',
             query: {name: '[name].[hash:16].[ext]'}
+        }, {
+            test: /\.ttf$/,
+            loader: 'url-loader',
+            include: path.resolve(__dirname, '../node_modules/react-native-vector-icons')
         }]
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }),
-        new LodashModuleReplacementPlugin,
-        new webpack.optimize.UglifyJsPlugin(),
+        new LodashModuleReplacementPlugin
     ],
     node: {
         fs: 'empty',

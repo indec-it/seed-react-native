@@ -1,15 +1,15 @@
-image: node:6-alpine
+image: node:10-alpine
 cache:
-  key: "alpine"
+  key: "10-alpine"
   paths:
     - node_modules/
 
 before_script:
-  - yarn install
+  - npm ci
 
 test:
   script:
-    - yarn test
+    - npm test
   tags:
     - docker
 
@@ -19,7 +19,7 @@ build:
     paths:
       - dist/
   script:
-    - yarn run build
+    - npm run build
   only:
     - master
   tags:

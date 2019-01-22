@@ -1,5 +1,3 @@
-/* eslint global-require: "off" */
-import {AsyncStorage} from 'react-native';
 import {createStore, applyMiddleware} from 'redux';
 import saga from 'redux-saga';
 import {persistStore} from 'redux-persist';
@@ -19,7 +17,7 @@ const enhancer = composeWithDevTools({
 export default function configureStore() {
     const store = createStore(reducers, enhancer);
     sagaMiddleware.run(sagas);
-    persistStore(store, {storage: AsyncStorage});
+    persistStore(store);
 
     return store;
 }

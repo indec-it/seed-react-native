@@ -9,4 +9,4 @@ const Root = () => (
     </NativeRouter>
 );
 
-AppRegistry.registerComponent('rfb', () => Root);
+AppRegistry.registerComponent('seed', () => Root);

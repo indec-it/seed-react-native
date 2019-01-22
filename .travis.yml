@@ -1,0 +1,41 @@
+sudo: false
+dist: bionic
+git:
+  depth: 3
+jobs:
+  include:
+    - stage: tests
+      language: node_js
+      node_js:
+        - 10
+      script:
+        - npm test
+        - commitlint-travis
+    - stage: build web
+      language: node_js
+      node_js:
+        - 10
+      script:
+        - npm run build
+    - stage: build android
+      language: android
+      android:
+        components:
+          - tools
+          - platform-tools
+          - tools  #not a typo. Needed for SDK update
+          - android-27
+          - build-tools-27.0.3
+          - extra-google-m2repository
+        licenses:
+          - 'android-sdk-license-.+'
+      before_install:
+        # hack to fix https://github.com/travis-ci/travis-ci/issues/8874
+        - yes | sdkmanager "platforms;android-27"
+        - nvm install
+        - npm ci
+      script:
+        - cd android && ./gradlew assembleRelease
+cache:
+  directories:
+    - node_modules

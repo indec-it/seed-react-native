@@ -1,4 +1,4 @@
-package com.rfb;
+package ar.gob.indec.seed;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "rfb";
+        return "seed";
     }
 }

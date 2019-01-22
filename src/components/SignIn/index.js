@@ -13,6 +13,7 @@ class SignIn extends Component {
     };
 
     componentDidMount() {
+        // eslint-disable-next-line
         this.props.requestLogin();
     }
 

@@ -42,3 +42,6 @@ buck-out/
 \.buckd/
 android/app/libs
 android/keystores/debug.keystore
+
+# Ignore copied from react-native-vector-icons
+android/app/src/main/assets/fonts
