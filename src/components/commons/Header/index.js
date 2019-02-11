@@ -1,4 +1,4 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, {Fragment, PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Image, View} from 'react-native';
@@ -55,7 +55,8 @@ class Header extends PureComponent {
     signOut = async () => {
         this.setState(() => ({showModal: false}));
         await SessionService.clearSession();
-        this.props.requestFetchToken();
+        const {requestFetchToken: requestFetchToken1} = this.props;
+        requestFetchToken1();
     };
 
     render() {

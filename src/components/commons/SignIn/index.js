@@ -8,7 +8,7 @@ import {Icon} from 'react-native-elements';
 import InputField from '@indec/react-native-md-textinput';
 import {isEmpty} from 'lodash';
 
-import {requestLogin, requestFetchToken} from '../../../actions/session';
+import {requestFetchToken, requestLogin} from '../../../actions/session';
 import Button from '../Button';
 import ChangeUserMessage from './ChangeUserMessage';
 import ErrorLoginMessages from './ErrorLoginMessages';
@@ -50,7 +50,8 @@ class SignIn extends Component {
     }
 
     componentDidMount() {
-        this.props.requestFetchToken();
+        const {requestFetchToken: requestFetchToken1} = this.props;
+        requestFetchToken1();
     }
 
     requestLogin() {
@@ -62,7 +63,8 @@ class SignIn extends Component {
             showCompleteUserAndPassword: false,
             showChangeUserMessage: false
         }));
-        this.props.requestLogin({
+        const {requestLogin: requestLogin1} = this.props;
+        requestLogin1({
             username,
             password
         }, authEndpoint, redirectUri, {clientId, clientSecret});

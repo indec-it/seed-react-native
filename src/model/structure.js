@@ -1,4 +1,6 @@
-import {filter, size, forEach, find} from 'lodash';
+import {
+    filter, size, forEach, find
+} from 'lodash';
 
 export default class Structure {
     constructor(data) {

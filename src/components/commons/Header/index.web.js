@@ -1,5 +1,6 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, {Fragment, PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-native';
 import {connect} from 'react-redux';
 import {Image, View} from 'react-native';
 
@@ -10,7 +11,6 @@ import SessionService from '../../../services/session';
 import Brand from './Brand';
 import Routes from './Routes';
 import styles from './styles';
-import {Link} from "react-router-native";
 
 const brandImageDefault = require('../../../images/brand.png');
 
@@ -37,7 +37,8 @@ class Header extends PureComponent {
     async signOut(route) {
         if (route.closeSession) {
             await SessionService.clearSession();
-            this.props.requestFetchToken();
+            const {requestFetchToken: requestFetchToken1} = this.props;
+            requestFetchToken1();
         }
     }
 
@@ -67,5 +68,4 @@ class Header extends PureComponent {
 export default connect(null,
     dispatch => ({
         requestFetchToken: () => dispatch(requestFetchToken())
-    })
-)(Header);
+    }))(Header);

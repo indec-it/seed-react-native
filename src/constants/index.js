@@ -12,14 +12,12 @@ export const AUTH_ENDPOINT = 'https://uathei.indec.gob.ar';
 export const CLIENT_ID = 'ihZa3A0CtnH8qjET';
 export const CLIENT_SECRET = 'FQJrl6SZzubiU2XkHM49yIPg';
 
-const USER_PROFILE_URI = `${REDIRECT_URI}/api/users/profile`;
-
 const headerRoutes = [{
     key: 1,
     icon: 'list-alt',
     text: 'Home',
     path: '/'
-},{
+}, {
     key: 2,
     icon: 'list-alt',
     text: 'Regalar',
