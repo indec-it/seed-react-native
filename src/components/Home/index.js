@@ -1,18 +1,16 @@
-/* eslint import/extensions:"off" */
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Link} from 'react-router-native';
-import {types} from '@indec/react-native-form-builder';
 
 import styles from './styles';
 
 const Home = () => (
     <View style={styles.container}>
         <Text style={styles.welcome}>
-            {types.YES_NO}
+            Necesitas hacerle un regalo a alguien especial?
         </Text>
-        <Link to="/signIn">
-            <Text>Signin</Text>
+        <Link to="/survey" style={styles.buttonStart}>
+            <Text>Encuentra el regalo perfecto</Text>
         </Link>
     </View>
 );

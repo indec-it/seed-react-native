@@ -5,16 +5,18 @@ export default StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF'
+        backgroundColor: '#fff'
     },
     welcome: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5
+    buttonStart: {
+        backgroundColor: '#2196f3',
+        padding: 10,
+        color: '#fff',
+        textTransform: 'uppercase',
+        borderRadius: 3
     }
 });

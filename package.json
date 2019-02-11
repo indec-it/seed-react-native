@@ -1,5 +1,5 @@
 {
-  "name": "seed-react-native",
+  "name": "jlqq",
   "version": "0.1.0",
   "scripts": {
     "postinstall": "./postinstall.sh",
@@ -11,12 +11,14 @@
     "menu": "adb shell input keyevent KEYCODE_MENU"
   },
   "dependencies": {
-    "@indec/react-native-form-builder": "^0.2.3",
+    "@indec/react-native-form-builder": "indec-it/react-native-form-builder",
+    "@indec/react-native-survey-commons": "indec-it/react-native-survey-commons",
+    "@indec/react-native-table": "indec-it/react-native-table",
     "prop-types": "^15.5.10",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-native": "^0.57.8",
-    "react-native-elements": "^0.19.1",
+    "react-native-elements": "^0.18.5",
     "react-native-vector-icons": "^6.2.0",
     "react-native-web": "^0.9.13",
     "react-redux": "^6.0.0",
@@ -45,7 +47,8 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.4",
     "husky": "^1.3.1",
-    "lodash-webpack-plugin": "^0.11.4",
+    "lodash": "^4.17.11",
+    "lodash-webpack-plugin": "^0.11.5",
     "react-art": "^16.7.0",
     "react-hot-loader": "^4.6.3",
     "react-test-renderer": "^16.7.0",
