@@ -39,3 +39,5 @@ jobs:
 cache:
   directories:
     - node_modules
+notifications:
+  slack: indec-sistemas:U34T7wkSbzuMWCcXIw9DOY05
